@@ -1,5 +1,7 @@
 "use client";
 
+import { AddTodo } from "@/components/AddTodo";
+import { TodoItem } from "@/components/Todo";
 import { useThrottle } from "@/hooks/throttle";
 import { useTheme } from "@/shared/themeContext";
 import { useCallback, useState } from "react";
@@ -45,13 +47,15 @@ export default function Home() {
       });
   };
 
+  const [editTodo, setEditTodo] = useState();
+
   return (
     <div
       className={`p-20 flex flex-col items-center h-screen ${
         theme === "light" ? "bg-white text-black" : "bg-black text-white"
       }`}
     >
-      <h1>count: {count}</h1>
+      {/* <h1>count: {count}</h1>
 
       <button
         className={`bg-green-700 px-4 py-2 rounded-lg mt-10 text-white ${
@@ -68,7 +72,9 @@ export default function Home() {
         onClick={fetchData}
       >
         Toggle Theme
-      </button>
+      </button> */}
+      <AddTodo />
+      <TodoItem />
     </div>
   );
 }
